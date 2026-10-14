@@ -1,0 +1,32 @@
+name: hsl_mixer
+description: >-
+  Per-color HSL adjustment for photos: change the hue, saturation and
+  lightness of reds, blues or greens on their own. GPU shader preview, Dart
+  export.
+version: 0.1.0
+repository: https://github.com/hurman74/hsl_mixer
+issue_tracker: https://github.com/hurman74/hsl_mixer/issues
+
+topics:
+  - image
+  - color
+  - photo
+  - filter
+  - shader
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.32.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  shaders:
+    - shaders/hsl_mixer.frag
