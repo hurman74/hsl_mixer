@@ -14,6 +14,12 @@ topics:
   - filter
   - shader
 
+screenshots:
+  - description: Changing the hue of blues, graying greens, then keeping only reds.
+    path: doc/demo.gif
+  - description: ColorFiltered grays every color; HslMixer.only keeps the reds.
+    path: doc/comparison.png
+
 environment:
   sdk: ">=3.8.0 <4.0.0"
   flutter: ">=3.32.0"

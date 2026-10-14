@@ -4,6 +4,8 @@ Per-color HSL adjustment for photos in Flutter, like the HSL panel in photo
 editors. Make the blues of a sky deeper without touching skin tones, shift
 greens toward yellow, or turn everything gray except one color.
 
+![Blues shifted in hue, greens turned gray, then a color splash that keeps only reds](https://raw.githubusercontent.com/hurman74/hsl_mixer/main/doc/demo.gif)
+
 - **Eight color bands**: red, orange, yellow, green, aqua, blue, purple and
   magenta, each with its own hue, saturation and lightness.
 - **Smooth**: colors between two bands are blended, so edits never leave hard
@@ -110,6 +112,8 @@ await HslMixerShader.precache();
 ```
 
 ## Why this package
+
+![The same image three times: the original, ColorFiltered grayscale with every color gray, and HslMixer.only keeping the reds](https://raw.githubusercontent.com/hurman74/hsl_mixer/main/doc/comparison.png)
 
 Flutter's `ColorFiltered` applies a single color matrix to every pixel. It can
 change the saturation or hue of the whole image, but not of one color range.
