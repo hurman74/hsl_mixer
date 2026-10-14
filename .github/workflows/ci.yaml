@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # Weekly, to catch breakage from new Flutter releases.
+    - cron: "0 6 * * 1"
+
+jobs:
+  check:
+    name: Flutter ${{ matrix.flutter-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # The minimum supported version and the latest stable release.
+        flutter-version: ["3.32.0", "any"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: ${{ matrix.flutter-version }}
+      - run: flutter pub get
+      - run: flutter pub get
+        working-directory: example
+      - name: Check formatting
+        if: matrix.flutter-version == 'any'
+        run: dart format --output=none --set-exit-if-changed .
+      - run: dart analyze --fatal-infos
+      - run: flutter test
+      - run: flutter test
+        working-directory: example
